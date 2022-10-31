@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Indonesia />} />
-          <Route exact path="indonesia" element={<Indonesia />} />
+
           <Route exact path="programming" element={<Programming />} />
           <Route exact path="covid19" element={<Covid19 />} />
         </Routes>
