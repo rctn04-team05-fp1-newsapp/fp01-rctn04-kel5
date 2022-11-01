@@ -6,16 +6,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 
-function Navbarscomp() {
+function Index() {
   return (
     <div>
-      <Navbar className="navbar navbar-dark bg-primary text-white" expand="lg">
+      <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">NEWS APP</Navbar.Brand>
+          <Navbar.Brand href="indonesia">NEWS APP</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="me-auto my-2 my-lg-0"
+              className="me-auto my- my-lg-0"
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
@@ -26,11 +26,11 @@ function Navbarscomp() {
             <Form className="d-flex">
               <Form.Control
                 type="search"
-                placeholder="Search"
+                placeholder="Search News"
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-success">Search</Button>
+              <Button className="btn-primary" type="button" id="searchBtn">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
@@ -39,4 +39,4 @@ function Navbarscomp() {
   );
 }
 
-export default Navbarscomp;
+export default Index;
