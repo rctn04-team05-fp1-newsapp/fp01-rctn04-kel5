@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button } from 'antd';
 import axios from 'axios';
-import '../../App.css';
+import '../App.css';
 
-function Covid19() {
+const { Meta } = Card;
+
+function Programming() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const getArticles = async () => {
       const response = await axios.get(
-        'https://newsapi.org/v2/everything?q=covid19&apiKey=aeea121fbf5b47d1a7a5cfa2f00e25d7'
+        'https://newsapi.org/v2/everything?q=programming&apiKey=aeea121fbf5b47d1a7a5cfa2f00e25d7'
       );
       console.log(response);
       setArticles(response.data.articles);
@@ -30,9 +32,9 @@ function Covid19() {
               <span className="news__published">{article.publishedAt}</span>
               <span className="news__source">{article.source.name}</span>
               <div>
-                <Button className="btn btn-info me-1">
-                  <span>News page</span>
-                </Button>
+                <a href={article.url} target="_blank" rel="noopener noreferrer">
+                  <Button className="btn btn-info me-1">News Page</Button>
+                </a>
                 <Button className="btn btn-primary">
                   <span>Save</span>
                 </Button>
@@ -44,4 +46,4 @@ function Covid19() {
   );
 }
 
-export default Covid19;
+export default Programming;
