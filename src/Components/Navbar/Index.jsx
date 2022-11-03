@@ -1,15 +1,17 @@
-import React from 'react'
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-
 function Index() {
   return (
     <div>
-      <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark" expand="lg">
+      <Navbar
+        className="navbar navbar-expand-lg navbar-dark bg-dark"
+        expand="lg"
+      >
         <Container fluid>
           <Navbar.Brand href="indonesia">NEWS APP</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -23,15 +25,6 @@ function Index() {
               <Nav.Link href="programming">Programming</Nav.Link>
               <Nav.Link href="covid19">COVID19</Nav.Link>
             </Nav>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search News"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button className="btn-primary" type="button" id="searchBtn">Search</Button>
-            </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>

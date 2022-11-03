@@ -4,12 +4,10 @@ import axios from 'axios';
 import Navbarscomp from './Navbar/Index';
 import '../App.css';
 
-const { Meta } = Card;
-
 function Indonesia() {
   const [articles, setArticles] = useState([]);
-  const [input, setInput] = useState('')
-  const [output, setOutput] = useState([])
+  const [input, setInput] = useState('');
+  const [output, setOutput] = useState([]);
 
   useEffect(() => {
     const getArticles = async () => {
@@ -24,75 +22,84 @@ function Indonesia() {
   console.log('articles', articles);
 
   useEffect(() => {
-    setOutput([])
-    articles.filter(val => {
+    setOutput([]);
+    articles.filter((val) => {
       if (val.title.toLowerCase().includes(input.toLowerCase())) {
-        setOutput(output => [...output, val])
+        setOutput((output) => [...output, val]);
       }
-    })
-  }, [input])
+    });
+  }, [input]);
 
   return (
-    <div className="news">
-      <div className='header'>
-        <h1>Indonesia News</h1>
-        <hr></hr>
-      </div>
-
-      
-      <div className='search'>
-        <div className='search-bar'>
-          <input onChange={e => setInput(e.target.value)}
-            type='text' placeholder="search"></input>
+    <>
+      <div>
+        <div className="header position-relative m-4">
+          <h1 className="pt-4 position-absolute top-0 start-50 translate-middle ">
+            Indonesia News
+          </h1>
         </div>
-
-        <div className='output'>
-          {output &&
-            output.map((article, index) => {
-              return (
-                <Card key={index}>
-                  <h3 className="news__title">{article.title}</h3>
-                  <p className="news__desc">{article.description}</p>
-                  <span className="news__author">{article.author}</span> <br />
-                  <span className="news__published">{article.publishedAt}</span>
-                  <span className="news__source">{article.source.name}</span>
-                  <div>
-                    <a href={article.url} target="_blank" rel="noopener noreferrer">
-                      <Button className="btn btn-info me-1">News Page</Button>
-                    </a>
-                    <Button className="btn btn-primary">
-                      <span>Save</span>
-                    </Button>
-                  </div>
-                </Card>
-              );
-            })}
-        </div>
-
-        <div className='indonesia-news'>
-          {articles &&
-            articles.map((article, index) => {
-              return (
-                <Card key={index}>
-                  <h3 className="news__title">{article.title}</h3>
-                  <p className="news__desc">{article.description}</p>
-                  <span className="news__author">{article.author}</span> <br />
-                  <span className="news__published">{article.publishedAt}</span>
-                  <span className="news__source">{article.source.name}</span>
-                  <div>
-                    <a href={article.url} target="_blank" rel="noopener noreferrer">
-                      <Button className="btn btn-info me-1">News Page</Button>
-                    </a>
-                    <Button className="btn btn-primary">
-                      <span>Save</span>
-                    </Button>
-                  </div>
-                </Card>
-              );
-            })}
+        <div className="search-bar position-absolute top-0 end-0 pe-2">
+          <input
+            className="form-control my-2"
+            onChange={(e) => setInput(e.target.value)}
+            type="text"
+            placeholder="search"
+          ></input>
         </div>
       </div>
-    </div>
+
+      <div className="news">
+        {output &&
+          output.map((article, index) => {
+            return (
+              <Card key={index}>
+                <h3 className="news__title">{article.title}</h3>
+                <p className="news__desc">{article.description}</p>
+                <span className="news__author">{article.author}</span> <br />
+                <span className="news__published">{article.publishedAt}</span>
+                <span className="news__source">{article.source.name}</span>
+                <div>
+                  <a
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="btn btn-info me-1">News Page</Button>
+                  </a>
+                  <Button className="btn btn-primary">
+                    <span>Save</span>
+                  </Button>
+                </div>
+              </Card>
+            );
+          })}
+
+        {articles &&
+          articles.map((article, index) => {
+            return (
+              <Card key={index}>
+                <h3 className="news__title">{article.title}</h3>
+                <p className="news__desc">{article.description}</p>
+                <span className="news__author">{article.author}</span> <br />
+                <span className="news__published">{article.publishedAt}</span>
+                <span className="news__source">{article.source.name}</span>
+                <div>
+                  <a
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="btn btn-info me-1">News Page</Button>
+                  </a>
+                  <Button className="btn btn-primary">
+                    <span>Save</span>
+                  </Button>
+                </div>
+              </Card>
+            );
+          })}
+      </div>
+    </>
   );
 }
 
